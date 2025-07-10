@@ -1,0 +1,61 @@
+<!-- comment.html -->
+<div class="media is-comment" id="comment-{{ comment.id }}">
+    <div class="media-left">
+        {% if comment.user.profile.image %}
+        <div class="image">
+            <img src="{{ comment.user.profile.image.url }}" alt="">
+        </div>
+        {% endif %}
+    </div>
+    <div class="media-content">
+        <a href="#">{{ comment.user.username }}</a>
+        <span class="time">{{ comment.date|timesince }} ago</span>
+        <p>{{ comment.body }}</p>
+        
+        <div class="controls">
+            <div class="like-count">
+                <i data-feather="thumbs-up"></i>
+                <span>0</span>
+            </div>
+            <div class="reply">
+                <a onclick="setReply('{{ comment.post.id }}', '{{ comment.id }}', '{{ comment.user.username }}')">Reply</a>
+            </div>
+        </div>
+
+        <!-- Replies -->
+        {% for reply in comment.children.all %}
+            {% include 'comment.html' with comment=reply %}
+        {% endfor %}
+    </div>
+</div>
+<script>
+   window.setReply = function(postId, commentId, username) {
+    const replyFormId = `reply-form-${commentId}`;
+    let $replyForm = $(`#${replyFormId}`);
+    const csrfToken = (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || $('meta[name="csrf-token"]').attr('content') || '';
+    
+    if (!$replyForm.length) {
+        $replyForm = $(`
+            <div class="reply-form" id="${replyFormId}" style="display: block; margin-left: 30px;">
+                <form method="POST" action="{% url 'index' %}" class="media post-comment reply-form-ajax" data-post-id="${postId}">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="${csrfToken}">
+                    <input type="hidden" name="post_id" value="${postId}">
+                    <input type="hidden" name="parent" value="${commentId}">
+                    <div class="media-content">
+                        <div class="field">
+                            <p class="control">
+                                <textarea class="textarea" name="body" rows="2" placeholder="Replying to ${username}..." required></textarea>
+                            </p>
+                        </div>
+                        <button type="submit" class="button is-small is-primary">Post Reply</button>
+                    </div>
+                </form>
+            </div>
+        `);
+        $(`#comment-${commentId} > .media-content`).append($replyForm);
+    } else {
+        $replyForm.toggle();
+    }
+    $replyForm.find('textarea').focus();
+};
+</script>
