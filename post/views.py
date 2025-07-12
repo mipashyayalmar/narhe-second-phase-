@@ -29,6 +29,10 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
+def setting(request):
+    return render(request, 'base/setting.html') 
+
 @login_required
 def index(request):
     user = request.user

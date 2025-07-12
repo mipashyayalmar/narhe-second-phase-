@@ -18,5 +18,5 @@ urlpatterns = [
     ), name='sign-in'),
     path('sign-out/', auth_views.LogoutView.as_view(template_name="sign-out.html"), name='sign-out'), 
 
-    path('setting/', views.setting, name='setting'),
+    # path('', views.setting, name='setting'),
 ]
