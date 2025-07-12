@@ -628,7 +628,11 @@
                                     <!-- Compose form -->
                                     <div class="compose">
                                         <div class="compose-form">
-                                            <img src="https://via.placeholder.com/300x300" data-demo-src="{% static 'assets/img/avatars/jenna.png' %}" alt="" />
+                                             {% if request.user.profile.image %}
+                                            <img src="https://via.placeholder.com/300x300" data-demo-src="{{ request.user.profile.image.url }}" alt="" />
+                                            {% else %}
+                                             <img src="https://via.placeholder.com/300x300" data-demo-src="{% static '/defaultbjp.jpg' %}" alt="" />
+                                            {% endif %}
                                             <div class="control">
                                                 <textarea id="publish" class="textarea" rows="3" placeholder="Write something about you..."></textarea>
                                             </div>
@@ -1165,12 +1169,12 @@
                         <img src="{{ post.picture.url }}" data-demo-src="{{ post.picture.url }}" alt="" />
                     </a>
                   <div class="like-wrapper">
-                                    <a href="javascript:void(0);" class="like-button" data-post-id="{{ post.id }}" data-liked="{% if request.user in post.post_likes.all %}true{% else %}false{% endif %}">
-                                        <i class="mdi mdi-heart not-liked bouncy"></i>
-                                        <i class="mdi mdi-heart is-liked bouncy"></i>
-                                        <span class="like-overlay"></span>
-                                    </a>
-                                </div>
+                    <a href="javascript:void(0);" class="like-button" data-post-id="{{ post.id }}" data-liked="{% if request.user in post.post_likes.all %}true{% else %}false{% endif %}">
+                        <i class="mdi mdi-heart not-liked bouncy"></i>
+                        <i class="mdi mdi-heart is-liked bouncy"></i>
+                        <span class="like-overlay"></span>
+                    </a>
+                </div>
                     <div class="fab-wrapper is-share">
                         <a href="javascript:void(0);" class="small-fab share-fab modal-trigger" data-modal="share-modal">
                             <i data-feather="link-2"></i>
@@ -1186,17 +1190,22 @@
             <!-- Post footer -->
             <div class="card-footer">
                 <div class="likers-group">
-                    <img src="{% static 'assets/img/avatars/dan.jpg' %}" data-user-popover="1" alt="" />
-                    <img src="{% static 'assets/img/avatars/david.jpg' %}" data-user-popover="4" alt="" />
-                    <img src="{% static 'assets/img/avatars/edward.jpeg' %}" data-user-popover="5" alt="" />
-                    <img src="{% static 'assets/img/avatars/milly.jpg' %}" data-user-popover="7" alt="" />
+                     {% for like in post.post_likes.all|slice:":4" %}
+                    <img src="{{ like.user.profile.image.url }}" data-user-popover="{{ like.user.id }}" alt="{{ like.user.username }}" />
+                {% endfor %}
                 </div>
                 <div class="likers-text">
                     <p>
-                        <a href="#">Milly</a>,
-                        <a href="#">David</a>
+                       {% with post.post_likes.all as likers %}
+                            {% for like in likers|slice:":2" %}
+                                <a href="#">{{ like.user.username }}</a>
+                                {% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        {% endwith %}
                     </p>
-                    <p>and 23 more liked this</p>
+                    {% if post.likes > 2 %}
+                        <p>and {{ post.likes|add:"-2" }} more liked this</p>
+                    {% endif %}
                 </div>
                 <div class="social-count">
                     <div class="likes-count" data-post-id="{{ post.id }}">
@@ -1284,7 +1293,13 @@
     <!-- /POST -->
 {% endfor %}
 <style>
-.like-wrapper .like-button {
+/* Like button styles */
+.like-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.like-button {
     position: relative;
     width: 54px;
     height: 54px;
@@ -1298,9 +1313,13 @@
     text-decoration: none;
     opacity: 1 !important;
     overflow: hidden;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 0;
 }
 
-.like-wrapper .like-button .like-overlay {
+.like-button .like-overlay {
     display: block;
     position: absolute;
     top: 0;
@@ -1314,231 +1333,198 @@
     z-index: 0;
 }
 
-.like-wrapper .like-button i.not-liked {
+.like-button i {
+    font-size: 24px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.like-button i.not-liked {
     display: block;
     color: #d10709;
-    font-size: 24px; /* Full-size heart */
-    position: relative;
-    z-index: 1;
 }
 
-.like-wrapper .like-button i.is-liked {
+.like-button i.is-liked {
     display: none;
     color: #fff;
-    font-size: 24px; /* Full-size heart */
-    position: relative;
+}
+
+.like-button.is-active .like-overlay {
+    transform: scale(1);
+}
+
+.like-button.is-active i.not-liked {
+    display: none;
+}
+
+.like-button.is-active i.is-liked {
+    display: block;
+}
+
+.like-button[data-liked="true"] .like-overlay {
+    transform: scale(1);
+}
+
+.like-button[data-liked="true"] i.not-liked {
+    display: none;
+}
+
+.like-button[data-liked="true"] i.is-liked {
+    display: block;
+}
+
+/* Likers section styles */
+.likers-group {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.likers-group img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: -10px;
+    border: 2px solid #fff;
+    transition: all 0.3s ease;
+}
+
+.likers-group img:hover {
+    transform: translateY(-3px);
     z-index: 1;
 }
 
-.like-wrapper .like-button.is-active {
-    box-shadow: 0px 5px 43px rgba(247, 20, 22, 0.18);
+.likers-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
 }
 
-.like-wrapper .like-button.is-active .like-overlay {
-    transform: scale(1); /* Overlay animation for feedback */
+.likers-text a {
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
 }
 
-.like-wrapper .like-button.is-active i.not-liked {
-    display: none;
-}
-
-.like-wrapper .like-button.is-active i.is-liked {
-    display: block;
-}
-
-/* Immediate full-size heart for liked state */
-.like-wrapper .like-button[data-liked="true"] i.is-liked {
-    display: block;
-    transform: scale(1); /* No scaling animation */
-}
-
-.like-wrapper .like-button[data-liked="true"] i.not-liked {
-    display: none;
-}
-
-.like-wrapper .like-button[data-liked="true"] .like-overlay {
-    transform: scale(1); /* Overlay full-size immediately */
+.likers-text a:hover {
+    text-decoration: underline;
 }
 </style>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Initialize localStorage for liked posts and initial likes
-    if (!localStorage.getItem('likedPosts')) {
-        localStorage.setItem('likedPosts', JSON.stringify({}));
-    }
-    if (!localStorage.getItem('initialLikes')) {
-        localStorage.setItem('initialLikes', JSON.stringify({}));
-    }
-
-    // Update like button states
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all like buttons
     document.querySelectorAll('.like-button').forEach(button => {
-        const postId = button.getAttribute('data-post-id');
-        const likedPosts = JSON.parse(localStorage.getItem('likedPosts'));
-        const initialLikes = JSON.parse(localStorage.getItem('initialLikes'));
-        const isLiked = likedPosts[postId] || button.getAttribute('data-liked') === 'true';
-        const likeCountSpan = document.querySelector(`.likes-count[data-post-id="${postId}"] span`);
-        const initialLikeCount = parseInt(document.querySelector(`.likes-count[data-post-id="${postId}"]`).getAttribute('data-initial-likes'));
-
-        // Store initial likes in localStorage if not already set
-        if (!initialLikes[postId]) {
-            initialLikes[postId] = initialLikeCount;
-            localStorage.setItem('initialLikes', JSON.stringify(initialLikes));
-        }
-
-        // Set initial state
-        button.setAttribute('data-liked', isLiked);
-        if (isLiked) {
+        button.addEventListener('click', handleLikeClick);
+        
+        // Set initial state based on data-liked attribute
+        if (button.dataset.liked === 'true') {
             button.classList.add('is-active');
-        } else {
-            button.classList.remove('is-active');
         }
-
-        // Double-click detection
-        let clickCount = 0;
-        let clickTimer = null;
-
-        button.addEventListener('click', function (e) {
-            clickCount++;
-            if (clickCount === 1) {
-                clickTimer = setTimeout(() => {
-                    clickCount = 0;
-                    handleSingleClick(button, postId);
-                }, 300); // 300ms for double-click detection
-            } else if (clickCount === 2) {
-                clearTimeout(clickTimer);
-                clickCount = 0;
-                handleDoubleClick(button, postId);
-            }
-        });
     });
 
-    function handleSingleClick(button, postId) {
-        const isCurrentlyLiked = button.getAttribute('data-liked') === 'true';
-        const likeCountSpan = document.querySelector(`.likes-count[data-post-id="${postId}"] span`);
-        let currentLikes = parseInt(likeCountSpan.textContent);
-
-        // Optimistically update UI
-        if (isCurrentlyLiked) {
-            button.setAttribute('data-liked', 'false');
-            button.classList.remove('is-active');
-            likeCountSpan.textContent = currentLikes - 1;
-        } else {
-            button.setAttribute('data-liked', 'true');
-            button.classList.add('is-active');
-            likeCountSpan.textContent = currentLikes + 1;
-        }
-
-        // Update localStorage
-        const likedPosts = JSON.parse(localStorage.getItem('likedPosts'));
-        likedPosts[postId] = !isCurrentlyLiked;
-        localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
-
-        // Send AJAX request to server
+    // Handle like click
+    function handleLikeClick(e) {
+        e.preventDefault();
+        const button = this;
+        const postId = button.dataset.postId;
+        const isLiked = button.dataset.liked === 'true';
+        
+        // Optimistic UI update
+        button.classList.toggle('is-active');
+        button.dataset.liked = !isLiked;
+        
+        // Disable button during request
+        button.disabled = true;
+        
+        // Send AJAX request
         fetch(`/like/${postId}/`, {
             method: 'POST',
             headers: {
                 'X-CSRFToken': getCookie('csrftoken'),
-                'Content-Type': 'application/json',
                 'X-Requested-With': 'XMLHttpRequest'
             },
-            body: JSON.stringify({ liked: !isCurrentlyLiked })
+            credentials: 'same-origin'
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.success) {
-                likeCountSpan.textContent = data.likes;
-                button.setAttribute('data-liked', data.liked);
-            } else {
-                // Revert UI
-                button.setAttribute('data-liked', isCurrentlyLiked);
-                if (isCurrentlyLiked) {
-                    button.classList.add('is-active');
-                    likeCountSpan.textContent = currentLikes;
-                } else {
-                    button.classList.remove('is-active');
-                    likeCountSpan.textContent = currentLikes;
+                // Update like count if element exists
+                const likeCountElement = document.querySelector(`.likes-count[data-post-id="${postId}"]`);
+                if (likeCountElement) {
+                    likeCountElement.textContent = data.likes;
                 }
-                console.error('Error:', data.error);
+                
+                // Update likers section
+                updateLikersSection(postId, data.likers, data.likers_count);
+            } else {
+                // Revert UI if error
+                button.classList.toggle('is-active');
+                button.dataset.liked = isLiked;
+                console.error('Error:', data.message);
             }
         })
         .catch(error => {
-            // Revert UI
-            button.setAttribute('data-liked', isCurrentlyLiked);
-            if (isCurrentlyLiked) {
-                button.classList.add('is-active');
-                likeCountSpan.textContent = currentLikes;
-            } else {
-                button.classList.remove('is-active');
-                likeCountSpan.textContent = currentLikes;
-            }
-            console.error('Fetch error:', error);
+            // Revert UI on error
+            button.classList.toggle('is-active');
+            button.dataset.liked = isLiked;
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            button.disabled = false;
         });
     }
 
-    function handleDoubleClick(button, postId) {
-        const isCurrentlyLiked = button.getAttribute('data-liked') === 'true';
-        const likeCountSpan = document.querySelector(`.likes-count[data-post-id="${postId}"] span`);
-        const initialLikes = JSON.parse(localStorage.getItem('initialLikes'));
-        const initialLikeCount = initialLikes[postId] || 0;
-
-        // Optimistically update UI
-        if (isCurrentlyLiked) {
-            // Reset to zero
-            likeCountSpan.textContent = 0;
-            button.setAttribute('data-liked', 'false');
-            button.classList.remove('is-active');
-        } else {
-            // Restore to initial server count
-            likeCountSpan.textContent = initialLikeCount;
-            button.setAttribute('data-liked', 'true');
-            button.classList.add('is-active');
-        }
-
-        // Update localStorage
-        const likedPosts = JSON.parse(localStorage.getItem('likedPosts'));
-        likedPosts[postId] = !isCurrentlyLiked;
-        localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
-
-        // Send AJAX request to reset likes
-        fetch(`/reset-likes/${postId}/`, {
-            method: 'POST',
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: JSON.stringify({ resetTo: isCurrentlyLiked ? 0 : initialLikeCount })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                likeCountSpan.textContent = data.likes;
-                button.setAttribute('data-liked', data.liked);
-            } else {
-                // Revert UI
-                button.setAttribute('data-liked', isCurrentlyLiked);
-                if (isCurrentlyLiked) {
-                    button.classList.add('is-active');
-                    likeCountSpan.textContent = initialLikeCount;
-                } else {
-                    button.classList.remove('is-active');
-                    likeCountSpan.textContent = parseInt(likeCountSpan.textContent);
-                }
-                console.error('Error:', data.error);
-            }
-        })
-        .catch(error => {
-            // Revert UI
-            button.setAttribute('data-liked', isCurrentlyLiked);
-            if (isCurrentlyLiked) {
-                button.classList.add('is-active');
-                likeCountSpan.textContent = initialLikeCount;
-            } else {
-                button.classList.remove('is-active');
-                likeCountSpan.textContent = parseInt(likeCountSpan.textContent);
-            }
-            console.error('Fetch error:', error);
+    // Update likers section
+    function updateLikersSection(postId, likers, totalLikes) {
+        const cardFooter = document.querySelector(`.card-footer[data-post-id="${postId}"]`);
+        if (!cardFooter) return;
+        
+        const likersGroup = cardFooter.querySelector('.likers-group');
+        const likersText = cardFooter.querySelector('.likers-text');
+        
+        if (!likersGroup || !likersText) return;
+        
+        // Clear existing content
+        likersGroup.innerHTML = '';
+        const namesParagraph = likersText.querySelector('p:first-child');
+        const countParagraph = likersText.querySelector('p:last-child');
+        namesParagraph.innerHTML = '';
+        
+        // Add new likers' avatars (first 4)
+        likers.slice(0, 4).forEach(liker => {
+            const img = document.createElement('img');
+            img.src = liker.avatar;
+            img.dataset.userPopover = liker.id;
+            img.alt = liker.name;
+            likersGroup.appendChild(img);
         });
+        
+        // Add names of first 2 likers
+        const firstTwo = likers.slice(0, 2);
+        firstTwo.forEach((liker, index) => {
+            const link = document.createElement('a');
+            link.href = '#';
+            link.textContent = liker.name;
+            namesParagraph.appendChild(link);
+            
+            if (index < firstTwo.length - 1) {
+                namesParagraph.appendChild(document.createTextNode(', '));
+            }
+        });
+        
+        // Update "and X more" text
+        if (totalLikes > 2) {
+            countParagraph.textContent = `and ${totalLikes - 2} more liked this`;
+            countParagraph.style.display = 'block';
+        } else {
+            countParagraph.style.display = 'none';
+        }
     }
 
     // Function to get CSRF token

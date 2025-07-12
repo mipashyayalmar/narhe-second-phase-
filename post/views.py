@@ -30,8 +30,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def setting(request):
-    return render(request, 'base/setting.html') 
+
 
 @login_required
 def index(request):
@@ -189,44 +188,71 @@ def Tags(request, tag_slug):
     }
     return render(request, 'tag.html', context)
 
+from django.http import JsonResponse, HttpResponseBadRequest
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.db import transaction
+from django.conf import settings
 
-from django.http import JsonResponse
 @login_required
 def like(request, post_id):
+    if request.method != 'POST':
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return HttpResponseBadRequest("Only POST requests are allowed")
+        return HttpResponseRedirect(reverse('index'))
+
     user = request.user
     post = get_object_or_404(Post, id=post_id)
-    
-    if request.method == 'POST' and request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        liked = Likes.objects.filter(user=user, post=post).exists()
 
-        if not liked:
-            Likes.objects.create(user=user, post=post)
-            post.likes += 1
-        else:
-            Likes.objects.filter(user=user, post=post).delete()
-            post.likes -= 1
-        
-        post.save()
+    try:
+        with transaction.atomic():
+            # Check if user already liked the post
+            like_instance, created = Likes.objects.get_or_create(
+                user=user,
+                post=post,
+                defaults={'user': user, 'post': post}
+            )
+
+            if not created:
+                like_instance.delete()
+                post.likes = max(0, post.likes - 1)  # Prevent negative likes
+            else:
+                post.likes += 1
+
+            post.save()
+
+            # Get the last 4 likers
+            last_likers = Likes.objects.filter(post=post)\
+                                     .select_related('user')\
+                                     .order_by('-id')[:4]
+
+            # Prepare response data
+            response_data = {
+                'success': True,
+                'likes': post.likes,
+                'liked': created,
+                'likers': [{
+                    'id': like.user.id,
+                    'name': like.user.username,
+                    'avatar': get_avatar_url(like.user)
+                } for like in last_likers],
+                'likers_count': post.likes
+            }
+
+            return JsonResponse(response_data)
+
+    except Exception as e:
         return JsonResponse({
-            'success': True,
-            'likes': post.likes,
-            'liked': not liked
-        })
-    else:
-        # Fallback for non-AJAX requests
-        current_likes = post.likes
-        liked = Likes.objects.filter(user=user, post=post).exists()
+            'success': False,
+            'error': str(e),
+            'message': 'An error occurred while processing your request'
+        }, status=500)
 
-        if not liked:
-            Likes.objects.create(user=user, post=post)
-            current_likes += 1
-        else:
-            Likes.objects.filter(user=user, post=post).delete()
-            current_likes -= 1
-        
-        post.likes = current_likes
-        post.save()
-        return HttpResponseRedirect(reverse('index'))  
+def get_avatar_url(user):
+    """Helper function to safely get user avatar URL with fallback"""
+    if hasattr(user, 'profile') and hasattr(user.profile, 'avatar') and user.profile.avatar:
+        return user.profile.avatar.url
+    return f"{settings.STATIC_URL}assets/img/avatars/default.jpg"
 @login_required
 def favourite(request, post_id):
     user = request.user

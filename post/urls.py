@@ -22,7 +22,7 @@ from django.urls import register_converter
 register_converter(UUIDConverter, 'uuid')
 
 urlpatterns = [
-    path('sarpatil/', index, name='index'),
+    path('', index, name='index'),
     path('newpost', NewPost, name='newpost'),
     path('post/<uuid:post_id>/', PostDetail, name='post-details'),
     path('post/<uuid:post_id>/comment/', PostDetail, name='post-comment'),
@@ -34,7 +34,6 @@ urlpatterns = [
 
      path('assets/data/api/users/users.json', cache_page(300)(users_json)),  # 5 minute cache
     path('assets/data/api/pages/pages.json', pages_json),
-    path('', views.setting, name='setting'),
 ]
 
 if settings.DEBUG:
