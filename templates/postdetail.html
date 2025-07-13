@@ -128,7 +128,6 @@
                                                 <form method="POST">
                                                     {% csrf_token %}
                                                     <div class="bg-light p-2">
-                                                        <!-- {{form|crispy}} -->
                                                         <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="{{request.user.profile.image.url}}" width="30" height="30">{{form.body}}</div>
                                                         <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="submit">Post comment</button></div>
                                                     </div>
