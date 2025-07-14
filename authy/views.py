@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from django.http import HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.db import transaction
 from django.contrib.auth.models import User
@@ -19,10 +19,15 @@ from django.shortcuts import get_object_or_404
 from notification.models import Notification
 from django.template.loader import render_to_string
 
+
+@login_required
 def UserProfile(request, username):
     # Ensure requesting user has a profile if authenticated
     if request.user.is_authenticated:
         Profile.objects.get_or_create(user=request.user)
+
+    if username == "AnonymousUser":
+        raise Http404("Profile does not exist")
     
     # Get the profile user
     user = get_object_or_404(User, username=username)

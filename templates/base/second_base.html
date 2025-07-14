@@ -432,7 +432,8 @@
                         <div class="user-image">
                             {% if request.user.profile.image %}
                                 <img class="is-rounded" src="{{ request.user.profile.image.url }}" data-user-popover="{{ request.user.id }}" alt="" />
-                            {% else %} no img
+                            {% else %} 
+                            <img class="is-rounded" src="{% static 'bjp-default.jpg' %}" data-user-popover="{{ request.user.id }}" alt="" />
                             {% endif %}
                             <span class="indicator"></span>
                         </div>

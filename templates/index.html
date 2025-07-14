@@ -1454,13 +1454,11 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             if (data.success) {
-                // Update like count if element exists
                 const likeCountElement = document.querySelector(`.likes-count[data-post-id="${postId}"]`);
                 if (likeCountElement) {
                     likeCountElement.textContent = data.likes;
                 }
                 
-                // Update likers section
                 updateLikersSection(postId, data.likers, data.likers_count);
             } else {
                 // Revert UI if error
