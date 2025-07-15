@@ -1,19 +1,133 @@
-<div class="card-footer">
-    <div class="likers-group">
-        {% for like in post.post_likes.all|slice:":4" %}
-            <img src="{{ like.user.profile.image.url }}" data-user-popover="{{ like.user.id }}" alt="{{ like.user.username }}" />
-        {% endfor %}
+{% for post in post_items %}
+<div class="card">
+    <!-- Post body -->
+    <div class="card-body">
+        <div class="post-text">
+            <p>
+                With caption
+                <a href="#">{{ post.caption }}</a>
+            </p>
+        </div>
+        <div class="post-image">
+            <a data-fancybox="post{{ post.id }}" data-lightbox-type="comments" data-thumb="{{ post.picture.url }}" href="{% url 'post-details' post.id %}" data-demo-href="{{ post.picture.url }}">
+                <img src="{{ post.picture.url }}" data-demo-src="{{ post.picture.url }}" alt="" />
+            </a>
+            <div class="like-wrapper">
+                <a href="javascript:void(0);" class="like-button" data-post-id="{{ post.id }}" data-liked="{% if request.user in post.post_likes.all %}true{% else %}false{% endif %}">
+                    <i class="mdi mdi-heart not-liked bouncy"></i>
+                    <i class="mdi mdi-heart is-liked bouncy"></i>
+                    <span class="like-overlay"></span>
+                </a>
+            </div>
+            <div class="fab-wrapper is-share">
+                <a href="javascript:void(0);" class="small-fab share-fab modal-trigger" data-modal="share-modal">
+                    <i data-feather="link-2"></i>
+                </a>
+            </div>
+            <div class="fab-wrapper is-comment">
+                <a href="javascript:void(0);" class="small-fab" onclick="document.getElementById('comments-{{ post.id }}').classList.toggle('is-hidden');">
+                    <i data-feather="message-circle"></i>
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="likers-text">
-        <p>
-            {% with post.post_likes.all as likers %}
-                {% for like in likers|slice:":2" %}
-                    <a href="#">{{ like.user.username }}</a>{% if not forloop.last %}, {% endif %}
+    <!-- Post footer -->
+    <div class="card-footer" data-post-id="{{ post.id }}">
+        <div class="likers-group">
+            {% for like in post.post_likes.all|slice:":4" %}
+                <img src="{{ like.user.profile.image.url }}" data-user-popover="{{ like.user.id }}" alt="{{ like.user.username }}" />
+            {% endfor %}
+        </div>
+        <div class="likers-text">
+            <p>
+                {% with post.post_likes.all as likers %}
+                    {% for like in likers|slice:":2" %}
+                        <a href="#">{{ like.user.username }}</a>
+                        {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                {% endwith %}
+            </p>
+            {% if post.likes > 2 %}
+                <p style="display: block;">and {{ post.likes|add:"-2" }} more liked this</p>
+            {% else %}
+                <p style="display: none;"></p>
+            {% endif %}
+        </div>
+        <div class="social-count">
+            <div class="likes-count" data-post-id="{{ post.id }}">
+                <i data-feather="heart"></i>
+                <span>{{ post.likes }}</span>
+            </div>
+            <div class="shares-count">
+                <i data-feather="link-2"></i>
+                <span>9</span>
+            </div>
+            <div class="comments-count">
+                <i data-feather="message-circle"></i>
+                <span>{{ post.comments.count }}</span>
+            </div>
+        </div>
+    </div>
+    <!-- Post comments -->
+    <div class="comments-wrap {% if post.comments.count == 0 %}is-hidden{% endif %}" id="comments-{{ post.id }}">
+        <div class="comments-heading">
+            <h4>Comments <small>(<span>{{ post.comments.count }}</span>)</small></h4>
+            <div class="close-comments" data-post="{{ post.id }}" onclick="document.getElementById('comments-{{ post.id }}').classList.add('is-hidden');">
+                <i data-feather="x"></i>
+            </div>
+        </div>
+        <div class="comments-body has-slimscroll">
+            {% if post.comments.count == 0 %}
+                <div class="comments-placeholder">
+                    <img src="{% static 'assets/img/icons/feed/bubble.svg' %}" alt="" />
+                    <h3>Nothing in here yet</h3>
+                    <p>Be the first to post a comment.</p>
+                </div>
+            {% else %}
+                {% for comment in post.comments.all %}
+                    {% if not comment.parent %}
+                        {% include 'comment.html' with comment=comment %}
+                    {% endif %}
                 {% endfor %}
-            {% endwith %}
-        </p>
-        {% if post.likes > 2 %}
-            <p>and {{ post.likes|add:"-2" }} more liked this</p>
-        {% endif %}
+            {% endif %}
+        </div>
+        <div class="card-footer">
+            <div class="media post-comment has-emojis">
+                <div class="media-content">
+                    <form method="POST" action="{% url 'index' %}" class="comment-form" data-post-id="{{ post.id }}">
+                        {% csrf_token %}
+                        <input type="hidden" name="post_id" value="{{ post.id }}">
+                        <div class="field">
+                            <p class="control">
+                                <textarea class="textarea comment-textarea" name="body" rows="2" placeholder="Write a comment..." required id="comment-textarea-{{ post.id }}"></textarea>
+                            </p>
+                        </div>
+                        <div class="actions">
+                            <div class="image is-32x32">
+                                {% if request.user.profile.image %}
+                                    <img class="is-rounded" src="{{ request.user.profile.image.url }}" data-user-popover="{{ request.user.id }}" alt="" />
+                                {% else %}
+                                    <img class="is-rounded" src="{% static 'assets/img/avatars/placeholder.jpg' %}" alt="" />
+                                {% endif %}
+                            </div>
+                            <div class="toolbar">
+                                <div class="action is-auto">
+                                    <i data-feather="at-sign"></i>
+                                </div>
+                                <div class="action is-emoji" id="emoji-trigger-{{ post.id }}">
+                                    <i data-feather="smile"></i>
+                                </div>
+                                <div class="action is-upload">
+                                    <i data-feather="camera"></i>
+                                    <input type="file" />
+                                </div>
+                                <button type="submit" class="button is-solid primary-button raised">Post Comment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+{% endfor %}
