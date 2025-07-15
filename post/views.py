@@ -215,7 +215,6 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.conf import settings
-
 @login_required
 def like(request, post_id):
     if request.method != 'POST':
@@ -229,17 +228,20 @@ def like(request, post_id):
     try:
         with transaction.atomic():
             # Check if user already liked the post
-            like_instance, created = Likes.objects.get_or_create(
-                user=user,
-                post=post,
-                defaults={'user': user, 'post': post}
-            )
-
-            if not created:
+            like_instance = Likes.objects.filter(user=user, post=post).first()
+            
+            if like_instance:
+                # Unlike the post
                 like_instance.delete()
-                post.likes = max(0, post.likes - 1)  # Prevent negative likes
+                post.likes = max(0, post.likes - 1)
+                action = 'unliked'
+                is_liked = False
             else:
+                # Like the post
+                Likes.objects.create(user=user, post=post)
                 post.likes += 1
+                action = 'liked'
+                is_liked = True
 
             post.save()
 
@@ -251,25 +253,27 @@ def like(request, post_id):
             # Prepare response data
             response_data = {
                 'success': True,
+                'action': action,
+                'is_liked': is_liked,  # Explicitly indicate if the user has liked the post
                 'likes': post.likes,
-                'liked': created,
                 'likers': [{
                     'id': like.user.id,
                     'name': like.user.username,
                     'avatar': get_avatar_url(like.user)
                 } for like in last_likers],
-                'likers_count': post.likes
+                'likers_count': post.likes,
             }
+            logger.info(f"Like action: {action}, Post: {post_id}, User: {user.id}, New like count: {post.likes}")
 
             return JsonResponse(response_data)
 
     except Exception as e:
+        logger.error(f"Error processing like for post_id {post_id}: {str(e)}")
         return JsonResponse({
             'success': False,
             'error': str(e),
             'message': 'An error occurred while processing your request'
         }, status=500)
-
 def get_avatar_url(user):
     """Helper function to safely get user avatar URL with fallback"""
     if hasattr(user, 'profile') and hasattr(user.profile, 'avatar') and user.profile.avatar:
