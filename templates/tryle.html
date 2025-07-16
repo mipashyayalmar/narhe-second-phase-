@@ -1549,10 +1549,13 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.success) {
                 // Update like count
+                // Update like count with icon
                 const likeCountElement = document.querySelector(`.likes-count[data-post-id="${postId}"]`);
                 if (likeCountElement) {
-                    likeCountElement.textContent = data.likes;
+                    likeCountElement.innerHTML = ` <i data-feather="heart"></i>  ${data.likes}`;
+                    feather.replace(); // This is necessary to render the Feather icon
                 }
+
                 
                 // Update button state
                 button.dataset.liked = data.is_liked ? 'true' : 'false';
@@ -6863,7 +6866,5 @@ async function loadUsers() {
     console.error('Failed to load users:', error);
   }
 }
-
-
 </script>
-{% endblock %} 
+{% endblock %}

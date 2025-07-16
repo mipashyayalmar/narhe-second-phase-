@@ -1108,14 +1108,35 @@
                     <div class="user-info">
                         <a href="{{ post.user.username }}">
                             {% if post.user.profile.first_name %}
-                                {{ post.user.profile.first_name|title }} {{ post.user.profile.last_name|title }}
+                                {{ post.user.profile.first_name|title }} {{ post.user.profile.last_name|title }}{% if post.user.profile.prime_member %}<img class="prime-tick" src="{% static 'assets/img/tick.png' %}" alt="">
+                                {% endif %}
                             {% else %}
                                 {{ post.user.username }}
+                                {% if post.user.profile.prime_member %}<img class="prime-tick" src="{% static 'assets/img/tick.png' %}" alt="">
+                                {% endif %}
                             {% endif %}
                         </a>
                         <span class="time">{{ post.posted }}</span>
                     </div>
                 </div>
+
+                <style>
+.prime-tick
+ {
+    max-width: 15px;
+    max-height: 15px;
+    vertical-align: middle;
+    margin-left: 4px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+                </style>
                 <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
                     <div>
                         <div class="button">

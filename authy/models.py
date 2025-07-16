@@ -21,30 +21,47 @@ class Profile(models.Model):
     location = models.CharField(max_length=200, null=True, blank=True)
     url = models.URLField(max_length=200, null=True, blank=True)
     favourite = models.ManyToManyField(Post, blank=True)
+    prime_member = models.BooleanField(default=False)
+    prime_expiry = models.DateTimeField(null=True, blank=True)
 
-    
+    def is_prime(self):
+        """Check if user currently has active prime membership"""
+        if not self.prime_member:
+            return False
+        if self.prime_expiry and self.prime_expiry < timezone.now():
+            self.prime_member = False
+            self.save()
+            return False
+        return True
+
     def save(self, *args, **kwargs):
+        # Handle image resizing
         super().save(*args, **kwargs)
+        
+        if self.image:
+            try:
+                img = Image.open(self.image.path)
+                if img.height > 300 or img.width > 300:
+                    output_size = (300, 300)
+                    img.thumbnail(output_size)
+                    img.save(self.image.path)
+            except FileNotFoundError:
+                pass
 
     def __str__(self):
         return f'{self.user.username} - Profile'
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        
-        img = Image.open(self.image.path)
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
-
 
 def create_user_profile(sender, instance, created, **kwargs):
-	if created:
-		Profile.objects.create(user=instance)
+    """Signal handler to create profile when new user is created"""
+    if created:
+        Profile.objects.get_or_create(user=instance)
 
 def save_user_profile(sender, instance, **kwargs):
-	instance.profile.save()
+    """Signal handler to save profile when user is saved"""
+    if hasattr(instance, 'profile'):
+        instance.profile.save()
 
+# Connect signals
 post_save.connect(create_user_profile, sender=User)
 post_save.connect(save_user_profile, sender=User)

@@ -1,101 +1,338 @@
-(function(document, $) {
-    "use strict";
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
-    $.extend(true, $.fancybox.defaults, {
-        btnTpl: {
-            share: '<button data-fancybox-share class="fancybox-button fancybox-button--share" title="{{SHARE}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.55 19c1.4-8.4 9.1-9.8 11.9-9.8V5l7 7-7 6.3v-3.5c-2.8 0-10.5 2.1-11.9 4.2z"/></svg></button>'
-        },
-        share: {
-            url: function(instance, item) {
-                // Use the exact post URL if available, otherwise fallback to item or window location
-                return (
-                    item.opts.postUrl ||
-                    (!instance.currentHash && item.type !== "inline" && item.type !== "html" && (item.origSrc || item.src)) ||
-                    window.location.href
-                );
-            },
-            tpl:
-                '<div class="fancybox-share">' +
-                '<h1>{{SHARE}}</h1>' +
-                '<p>' +
-                '<a class="fancybox-share__button fancybox-share__button--wa" href="https://api.whatsapp.com/send?text={{url}}" style="background-color: #25D366;">' +
-                '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.074-.149-.669-.669-.916-.983-.248-.314-.347-.669-.247-.767.099-.099.445-.347.892-.694a3.36 3.36 0 0 1 .644-.223c.223-.074.471-.024.694.099.223.124.471.396.694.694.223.297.297.644.223.966-.074.322-.173.644-.347.892-.173.248-.396.471-.669.644l-.496.495c-.074.074-.148.099-.223.099zm4.702-2.06A12.015 12.015 0 0 0 12.06 0a11.964 11.964 0 0 0-9.937 5.382 12.015 12.015 0 0 0 .297 13.06L0 24l5.937-1.558a12.015 12.015 0 0 0 6.124 1.66h.005c6.627 0 12-5.373 12-12a11.964 11.964 0 0 0-1.755-6.162zM12.06 21.937a9.955 9.955 0 0 1-5.06-1.387l-.362-.173-3.522.925.94-3.437-.173-.362a9.955 9.955 0 0 1-1.512-5.318c0-5.53 4.493-10.022 10.022-10.022 2.67 0 5.184 1.04 7.072 2.928a9.955 9.955 0 0 1 2.928 7.072c0 5.53-4.493 10.022-10.022 10.022z"/></svg>' +
-                '<span>WhatsApp</span></a>' +
-                '<a class="fancybox-share__button fancybox-share__button--in" href="https://www.instagram.com/?url={{url}}" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">' +
-                '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63a6.932 6.932 0 0 0-2.51 1.636A6.932 6.932 0 0 0 .63 4.14C.333 4.905.132 5.775.072 7.053.015 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913a6.932 6.932 0 0 0 1.636 2.51 6.932 6.932 0 0 0 2.51 1.636c.765.297 1.636.498 2.913.558C8.333 23.985 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.261 2.913-.558a6.932 6.932 0 0 0 2.51-1.636 6.932 6.932 0 0 0 1.636-2.51c.297-.765.498-1.636.558-2.913.057-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.261-2.148-.558-2.913a6.932 6.932 0 0 0-1.636-2.51A6.932 6.932 0 0 0 19.86.63c-.765-.297-1.636-.498-2.913-.558C15.667.015 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.899.422.422.682.82.899 1.382.166.422.36 1.057.415 2.227.055 1.265.07 1.647.07 4.85s-.015 3.585-.07 4.85c-.055 1.17-.249 1.805-.415 2.227a3.827 3.827 0 0 1-.899 1.382c-.422.422-.82.682-1.382.899-.422.166-1.057.36-2.227.415-1.265.055-1.647.07-4.85.07s-3.585-.015-4.85-.07c-1.17-.055-1.805-.249-2.227-.415a3.827 3.827 0 0 1-1.382-.899c-.422-.422-.682-.82-.899-1.382-.166-.422-.36-1.057-.415-2.227-.055-1.265-.07-1.647-.07-4.85s.015-3.585.07-4.85c.055-1.17.249-1.805.415-2.227a3.827 3.827 0 0 1 .899-1.382c.422-.422.82-.682 1.382-.899.422-.166 1.057-.36 2.227-.415 1.265-.055 1.647-.07 4.85-.07zm0 3.264a6.576 6.576 0 1 0 0 13.152 6.576 6.576 0 0 0 0-13.152zm0 10.848a4.272 4.272 0 1 1 0-8.544 4.272 4.272 0 0 1 0 8.544zm6.816-11.232a1.536 1.536 0 1 1-3.072 0 1.536 1.536 0 0 1 3.072 0z"/></svg>' +
-                '<span>Instagram</span></a>' +
-                '<a class="fancybox-share__button fancybox-share__button--fb" href="https://www.facebook.com/sharer/sharer.php?u={{url}}" style="background-color: #1877F2;">' +
-                '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854V15.27H7.078V12h3.047V9.356c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874V12h3.328l-.532 3.27h-2.796v8.584C19.612 22.954 24 17.99 24 12.073z"/></svg>' +
-                '<span>Facebook</span></a>' +
-                '<a class="fancybox-share__button fancybox-share__button--tw" href="https://twitter.com/intent/tweet?url={{url}}" style="background-color: #1DA1F2;">' +
-                '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff"><path d="M23.953 4.57a9.992 9.992 0 0 1-2.825 3.094 4.996 4.996 0 0 0-.337-3.586 4.99 4.99 0 0 0-3.586-.337c.9-.558 1.693-1.314 2.25-2.25a9.948 9.948 0 0 1-3.176 1.215A5.001 5.001 0 0 0 8.96 7.616a14.146 14.146 0 0 1-10.28-5.216 5.002 5.002 0 0 0 1.55 6.674 4.983 4.983 0 0 1-2.265-.627v.063a5.002 5.002 0 0 0 4.01 4.9 4.99 4.99 0 0 1-2.25.085 5.002 5.002 0 0 0 4.672 3.47 10.01 10.01 0 0 1-6.19 2.135c-.402 0-.8-.024-1.19-.072a14.14 14.14 0 0 0 7.672 2.25c9.215 0 14.25-7.633 14.25-14.25 0-.216-.005-.432-.015-.647A10.15 10.15 0 0 0 24 4.57z"/></svg>' +
-                '<span>Twitter</span></a>' +
-                '<a class="fancybox-share__button fancybox-share__button--pt" href="https://www.pinterest.com/pin/create/button/?url={{url}}" style="background-color: #E60023;">' +
-                '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff"><path d="M12 0a12 12 0 0 0-3.797 23.377c-.06-.55-.103-1.398.022-2.004l1.354-5.74a3.75 3.75 0 0 1-.322-1.674c0-1.566.835-2.896 1.876-2.896 1.392 0 2.456 1.105 2.456 2.573 0 1.566-.797 2.896-1.835 2.896-.406 0-.797-.276-1.354-.797-.797 1.105-1.955 2.573-1.955 4.138 0 .957.276 1.835.276 1.835l-.022.022c-.022.135-.022.276-.022.418 0 1.392 1.876 2.573 4.138 2.573 2.896 0 5.13-2.573 5.13-5.74 0-3.167-2.573-5.74-5.74-5.74-2.573 0-4.138 1.835-4.138 3.956 0 .957.322 1.674.797 2.231.135.203.203.406.135.61-.203.61-.61 1.876-.797 2.573-.135.406-.406.797-.797.957-.957.406-1.955.135-2.573-.61-.61-.61-.957-1.392-.957-2.231 0-2.573 1.835-4.904 5.304-4.904 2.784 0 4.904 2.231 4.904 5.13 0 2.784-1.955 5.13-4.672 5.13-1.566 0-2.784-.797-3.243-1.674l-.797 3.243c-.276 1.105-1.105 2.231-1.955 2.896A12 12 0 0 0 24 12 12 12 0 0 0 12 0z"/></svg>' +
-                '<span>Pinterest</span></a>' +
-                '</p>' +
-                '<p><input class="fancybox-share__input" type="text" value="{{url_raw}}" onclick="select()" /></p>' +
-                '</div>'
-        }
-    });
+from post.models import Post, Tag, Follow, Stream, Likes
+from django.contrib.auth.models import User
+from post.forms import NewPostform
+from authy.models import Profile
+from django.urls import resolve
+from comment.models import Comment
+from comment.forms import NewCommentForm
+from django.core.paginator import Paginator
 
-    $(document).on('click', '[data-fancybox-share]', function() {
-        var instance = $.fancybox.getInstance(),
-            current = instance.current || null,
-            url, tpl;
+from django.db.models import Q
+# from post.models import Post, Follow, Stream
+# post/views.py
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.models import User
+from django.db.models import Q
+from django.core.paginator import Paginator
+from post.models import Post, Stream, Follow
+from comment.models import Comment
+from comment.forms import NewCommentForm
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect, JsonResponse
+from django.urls import reverse
+import logging
 
-        if (!current) return;
+logger = logging.getLogger(__name__)
 
-        // Allow custom post URL to be set via data attribute
-        var postUrl = current.$content ? current.$content.closest('.fancybox-slide').data('post-url') : null;
-        if (postUrl) {
-            current.opts.postUrl = postUrl;
-        }
 
-        if ($.type(current.opts.share.url) === "function") {
-            url = current.opts.share.url.apply(current, [instance, current]);
-        }
 
-        tpl = current.opts.share.tpl
-            .replace(/\{\{url\}\}/g, encodeURIComponent(url))
-            .replace(/\{\{url_raw\}\}/g, function(url) {
-                var escaped = {
-                    "&": "&",
-                    "<": "<",
-                    ">": ">",
-                    '"': """,
-                    "'": "'",
-                    "/": "/",
-                    "`": "`",
-                    "=": "="
-                };
-                return String(url).replace(/[&<>"'`=\/]/g, function(s) {
-                    return escaped[s];
-                });
-            }(url))
-            .replace(/\{\{descr\}\}/g, "");
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse, HttpResponseRedirect
+from django.urls import reverse
+from django.db.models import Q
+from django.core.paginator import Paginator
+import logging
 
-        $.fancybox.open({
-            src: instance.translate(instance, tpl),
-            type: "html",
-            opts: {
-                touch: false,
-                animationEffect: false,
-                afterLoad: function(shareInstance, shareCurrent) {
-                    instance.$refs.container.one('beforeClose.fb', function() {
-                        shareInstance.close(null, 0);
-                    });
+logger = logging.getLogger(__name__)
 
-                    shareCurrent.$content.find('.fancybox-share__button').click(function() {
-                        window.open(this.href, 'Share', 'width=550, height=450');
-                        return false;
-                    });
+def index(request):
+    user = request.user
+    all_users = User.objects.all()
+    profiles = Profile.objects.all()
+    
+    # Initialize variables
+    followed_users = []
+    form = NewCommentForm()
+    
+    # For unauthenticated users - show all public posts
+    if not user.is_authenticated:
+        post_items = Post.objects.all().order_by('-posted')
+    else:
+        # For authenticated users - show personalized feed
+        all_users = all_users.exclude(id=user.id)
+        followed_users = Follow.objects.filter(follower=user).values_list('following__id', flat=True)
+        
+        # Get posts from followed users
+        posts = Stream.objects.filter(user=user)
+        group_ids = [post.post_id for post in posts]
+        
+        # Combine followed users' posts and user's own posts
+        post_items = Post.objects.filter(
+            Q(id__in=group_ids) | Q(user=user)
+        )
+
+        # Order by posting time
+        post_items = post_items.distinct().order_by('-posted')
+
+    # Handle POST requests (comments)
+    if request.method == "POST":
+        if not user.is_authenticated:
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+                return JsonResponse({'success': False, 'error': 'Authentication required'}, status=401)
+            return redirect('login')
+            
+        form = NewCommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = user
+            post_id = request.POST.get('post_id')
+            post = get_object_or_404(Post, id=post_id)
+            comment.post = post
+            parent_id = request.POST.get('parent')
+            if parent_id:
+                parent = get_object_or_404(Comment, id=parent_id)
+                comment.parent = parent
+            comment.save()
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+                return JsonResponse({'success': True, 'comment_id': str(comment.id)})
+            return HttpResponseRedirect(reverse('index'))
+        else:
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+                return JsonResponse({'success': False, 'error': form.errors}, status=400)
+            logger.error(f"Form errors: {form.errors}")
+
+    # Handle search
+    query = request.GET.get('q')
+    if query:
+        users = User.objects.filter(Q(username__icontains=query))
+        paginator = Paginator(users, 6)
+        page_number = request.GET.get('page')
+        users_paginator = paginator.get_page(page_number)
+    else:
+        users_paginator = None
+
+    context = {
+        'post_items': post_items,
+        'profiles': profiles,
+        'all_users': all_users,
+        'followed_users': followed_users,
+        'form': form,
+        'users_paginator': users_paginator,
+    }
+    return render(request, 'index.html', context)
+
+@login_required
+def PostDetail(request, post_id):
+    user = request.user
+    post = get_object_or_404(Post, id=post_id)
+    comments = Comment.objects.filter(post=post, parent=None).order_by('-date')
+
+    if request.method == "POST":
+        form = NewCommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.user = user
+            parent_id = request.POST.get('parent')
+            if parent_id:
+                parent = get_object_or_404(Comment, id=parent_id)
+                comment.parent = parent
+            comment.save()
+            return HttpResponseRedirect(reverse('post-details', args=[post.id]))
+    else:
+        form = NewCommentForm()
+
+    context = {
+        'post': post,
+        'form': form,
+        'comments': comments
+    }
+    return render(request, 'postdetail.html', context)
+
+def post_comments(request, post_id):
+    logger.info(f"Received request for comments on post_id: {post_id}")
+    try:
+        post = get_object_or_404(Post, id=post_id)
+        comments = Comment.objects.filter(post=post, parent=None)
+        comments_data = []
+        for comment in comments:
+            comments_data.append({
+                'id': comment.id,
+                'user': {
+                    'username': comment.user.username,
+                    'profile_image': comment.user.profile.image.url if comment.user.profile.image else None
                 },
-                mobile: {
-                    autoFocus: false
-                }
-            }
-        });
-    });
+                'body': comment.body,
+                'date': comment.date.isoformat(),
+                'children': [
+                    {
+                        'id': reply.id,
+                        'user': {
+                            'username': reply.user.username,
+                            'profile_image': reply.user.profile.image.url if reply.user.profile.image else None
+                        },
+                        'body': reply.body,
+                        'date': reply.date.isoformat(),
+                        'children': []
+                    } for reply in comment.replies.all()
+                ]
+            })
+        logger.info(f"Returning {len(comments_data)} comments for post_id: {post_id}")
+        return JsonResponse(comments_data, safe=False)
+    except Exception as e:
+        logger.error(f"Error fetching comments for post_id {post_id}: {str(e)}")
+        return JsonResponse({'error': str(e)}, status=500)
+@login_required
+def NewPost(request):
+    user = request.user
+    profile = get_object_or_404(Profile, user=user)
+    tags_obj = []
+    
+    if request.method == "POST":
+        form = NewPostform(request.POST, request.FILES)
+        if form.is_valid():
+            picture = form.cleaned_data.get('picture')
+            caption = form.cleaned_data.get('caption')
+            tag_form = form.cleaned_data.get('tags')
+            tag_list = list(tag_form.split(','))
 
-})(document, jQuery);
+            for tag in tag_list:
+                t, created = Tag.objects.get_or_create(title=tag)
+                tags_obj.append(t)
+            p, created = Post.objects.get_or_create(picture=picture, caption=caption, user=user)
+            p.tags.set(tags_obj)
+            p.save()
+            return redirect('profile', request.user.username)
+    else:
+        form = NewPostform()
+    context = {
+        'form': form
+    }
+    return render(request, 'newpost.html', context)
+
+@login_required
+def Tags(request, tag_slug):
+    tag = get_object_or_404(Tag, slug=tag_slug)
+    posts = Post.objects.filter(tags=tag).order_by('-posted')
+
+    context = {
+        'posts': posts,
+        'tag': tag
+
+    }
+    return render(request, 'tag.html', context)
+
+from django.http import JsonResponse, HttpResponseBadRequest
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.db import transaction
+from django.conf import settings
+@login_required
+def like(request, post_id):
+    if request.method != 'POST':
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return HttpResponseBadRequest("Only POST requests are allowed")
+        return HttpResponseRedirect(reverse('index'))
+
+    user = request.user
+    post = get_object_or_404(Post, id=post_id)
+
+    try:
+        with transaction.atomic():
+            # Check if user already liked the post
+            like_instance = Likes.objects.filter(user=user, post=post).first()
+            
+            if like_instance:
+                # Unlike the post
+                like_instance.delete()
+                post.likes = max(0, post.likes - 1)
+                action = 'unliked'
+                is_liked = False
+            else:
+                # Like the post
+                Likes.objects.create(user=user, post=post)
+                post.likes += 1
+                action = 'liked'
+                is_liked = True
+
+            post.save()
+
+            # Get the last 4 likers
+            last_likers = Likes.objects.filter(post=post)\
+                                     .select_related('user')\
+                                     .order_by('-id')[:4]
+
+            # Prepare response data
+            response_data = {
+                'success': True,
+                'action': action,
+                'is_liked': is_liked,  # Explicitly indicate if the user has liked the post
+                'likes': post.likes,
+                'likers': [{
+                    'id': like.user.id,
+                    'name': like.user.username,
+                    'avatar': get_avatar_url(like.user)
+                } for like in last_likers],
+                'likers_count': post.likes,
+            }
+            logger.info(f"Like action: {action}, Post: {post_id}, User: {user.id}, New like count: {post.likes}")
+
+            return JsonResponse(response_data)
+
+    except Exception as e:
+        logger.error(f"Error processing like for post_id {post_id}: {str(e)}")
+        return JsonResponse({
+            'success': False,
+            'error': str(e),
+            'message': 'An error occurred while processing your request'
+        }, status=500)
+def get_avatar_url(user):
+    """Helper function to safely get user avatar URL with fallback"""
+    if hasattr(user, 'profile') and hasattr(user.profile, 'avatar') and user.profile.avatar:
+        return user.profile.avatar.url
+    return f"{settings.STATIC_URL}assets/img/avatars/default.jpg"
+@login_required
+def favourite(request, post_id):
+    user = request.user
+    post = Post.objects.get(id=post_id)
+    profile = Profile.objects.get(user=user)
+
+    if profile.favourite.filter(id=post_id).exists():
+        profile.favourite.remove(post)
+    else:
+        profile.favourite.add(post)
+    return HttpResponseRedirect(reverse('post-details', args=[post_id]))
+
+
+
+# Add to your views.py
+
+@login_required
+def users_json(request):
+    users = User.objects.all().values('id', 'username', 'email')
+    return JsonResponse(list(users), safe=False)
+
+@login_required
+def pages_json(request):
+    # Create your pages data structure here
+    pages = []
+    return JsonResponse(pages, safe=False)
+
+
+from django.core.cache import caches
+from django.views import View
+
+class RateLimitedJsonView(View):
+    RATE_LIMIT = 10  # 10 requests
+    RATE_LIMIT_PERIOD = 60  # per minute
+
+    def dispatch(self, request, *args, **kwargs):
+        cache = caches['default']
+        ip = request.META.get('REMOTE_ADDR')
+        key = f'rate_limit:{ip}:{request.path}'
+        
+        current = cache.get(key, 0)
+        if current >= self.RATE_LIMIT:
+            return JsonResponse(
+                {'error': 'Too many requests'}, 
+                status=429
+            )
+        
+        cache.set(key, current + 1, self.RATE_LIMIT_PERIOD)
+        return super().dispatch(request, *args, **kwargs)

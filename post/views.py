@@ -41,61 +41,33 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 def index(request):
     user = request.user
     all_users = User.objects.all()
     profiles = Profile.objects.all()
-    
-    # Initialize variables
-    followed_users = []
     form = NewCommentForm()
     
     # For unauthenticated users - show all public posts
     if not user.is_authenticated:
         post_items = Post.objects.all().order_by('-posted')
     else:
-        # For authenticated users - show personalized feed
-        all_users = all_users.exclude(id=user.id)
-        followed_users = Follow.objects.filter(follower=user).values_list('following__id', flat=True)
+        # Get all prime users
+        prime_users = User.objects.filter(profile__prime_member=True)
         
-        # Get posts from followed users
+        # Get posts from:
+        # 1. Users you follow
+        # 2. Your own posts
+        # 3. Prime users' posts
+        followed_users = Follow.objects.filter(follower=user).values_list('following__id', flat=True)
         posts = Stream.objects.filter(user=user)
         group_ids = [post.post_id for post in posts]
         
-        # Combine followed users' posts and user's own posts
         post_items = Post.objects.filter(
-            Q(id__in=group_ids) | Q(user=user)
-        )
-
-        # Order by posting time
-        post_items = post_items.distinct().order_by('-posted')
-
-    # Handle POST requests (comments)
-    if request.method == "POST":
-        if not user.is_authenticated:
-            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-                return JsonResponse({'success': False, 'error': 'Authentication required'}, status=401)
-            return redirect('login')
-            
-        form = NewCommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.user = user
-            post_id = request.POST.get('post_id')
-            post = get_object_or_404(Post, id=post_id)
-            comment.post = post
-            parent_id = request.POST.get('parent')
-            if parent_id:
-                parent = get_object_or_404(Comment, id=parent_id)
-                comment.parent = parent
-            comment.save()
-            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-                return JsonResponse({'success': True, 'comment_id': str(comment.id)})
-            return HttpResponseRedirect(reverse('index'))
-        else:
-            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-                return JsonResponse({'success': False, 'error': form.errors}, status=400)
-            logger.error(f"Form errors: {form.errors}")
+            Q(id__in=group_ids) | 
+            Q(user=user) |
+            Q(user__in=prime_users)
+        ).distinct().order_by('-posted')
 
     # Handle search
     query = request.GET.get('q')
@@ -110,8 +82,8 @@ def index(request):
     context = {
         'post_items': post_items,
         'profiles': profiles,
-        'all_users': all_users,
-        'followed_users': followed_users,
+        'all_users': all_users.exclude(id=user.id) if user.is_authenticated else all_users,
+        'followed_users': followed_users if user.is_authenticated else [],
         'form': form,
         'users_paginator': users_paginator,
     }

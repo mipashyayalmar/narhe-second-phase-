@@ -203,3 +203,1218 @@ books not found when generating links
 No url supplied in custom link
 Couldnt reverse make_messages
 Couldnt reverse make_messages
+Watching for file changes with StatReloader
+Received request for comments on post_id: 7de696c7-e389-490c-8c72-660a6e6bc55c
+Returning 0 comments for post_id: 7de696c7-e389-490c-8c72-660a6e6bc55c
+Received request for comments on post_id: c3309d93-9a21-4d70-a60d-32241e4bdc7e
+Returning 3 comments for post_id: c3309d93-9a21-4d70-a60d-32241e4bdc7e
+Received request for comments on post_id: 64afebab-1c6a-4f5e-88ed-c8c8be0b26eb
+Returning 1 comments for post_id: 64afebab-1c6a-4f5e-88ed-c8c8be0b26eb
+Received request for comments on post_id: 7f79df5b-8270-448d-b27e-c4d10dac7840
+Returning 5 comments for post_id: 7f79df5b-8270-448d-b27e-c4d10dac7840
+Received request for comments on post_id: f26603c8-db69-4826-97ac-44bf326eff09
+Returning 1 comments for post_id: f26603c8-db69-4826-97ac-44bf326eff09
+Received request for comments on post_id: 47bd3d60-f376-4213-969f-232d4ecbe4e4
+Returning 2 comments for post_id: 47bd3d60-f376-4213-969f-232d4ecbe4e4
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /admin/authy/profile/
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: authy_profile.prime_member
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\contrib\admin\options.py", line 2065, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Django\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: authy_profile.prime_member
+Internal Server Error: /favicon.ico/
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: authy_profile.prime_member
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\views.py", line 27, in UserProfile
+    Profile.objects.get_or_create(user=request.user)
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 916, in get_or_create
+    return self.get(**kwargs), False
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Django\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: authy_profile.prime_member
+Watching for file changes with StatReloader
+Internal Server Error: /admin/authy/profile/
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: authy_profile.prime_member
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\contrib\admin\options.py", line 2065, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Django\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: authy_profile.prime_member
+Internal Server Error: /favicon.ico/
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: authy_profile.prime_member
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\views.py", line 27, in UserProfile
+    Profile.objects.get_or_create(user=request.user)
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 916, in get_or_create
+    return self.get(**kwargs), False
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Django\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: authy_profile.prime_member
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 473, in __get__
+    rel_obj = self.related.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'profile'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: authy_profile.prime_member
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py", line 62, in index
+    is_prime = hasattr(user, 'profile') and user.profile.is_prime()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\utils\functional.py", line 268, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 481, in __get__
+    rel_obj = self.get_queryset(instance=instance).get(**filter_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Django\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: authy_profile.prime_member
+Internal Server Error: /favicon.ico/
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: authy_profile.prime_member
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\views.py", line 27, in UserProfile
+    Profile.objects.get_or_create(user=request.user)
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 916, in get_or_create
+    return self.get(**kwargs), False
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Django\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: authy_profile.prime_member
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 473, in __get__
+    rel_obj = self.related.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'profile'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: authy_profile.prime_member
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py", line 62, in index
+    is_prime = hasattr(user, 'profile') and user.profile.is_prime()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\utils\functional.py", line 268, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 481, in __get__
+    rel_obj = self.get_queryset(instance=instance).get(**filter_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Django\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: authy_profile.prime_member
+Internal Server Error: /favicon.ico/
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: authy_profile.prime_member
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\views.py", line 27, in UserProfile
+    Profile.objects.get_or_create(user=request.user)
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 916, in get_or_create
+    return self.get(**kwargs), False
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Django\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: authy_profile.prime_member
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 473, in __get__
+    rel_obj = self.related.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'profile'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: authy_profile.prime_member
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py", line 62, in index
+    is_prime = hasattr(user, 'profile') and user.profile.is_prime()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\utils\functional.py", line 268, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 481, in __get__
+    rel_obj = self.get_queryset(instance=instance).get(**filter_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Django\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: authy_profile.prime_member
+Internal Server Error: /favicon.ico/
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: authy_profile.prime_member
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\views.py", line 27, in UserProfile
+    Profile.objects.get_or_create(user=request.user)
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 916, in get_or_create
+    return self.get(**kwargs), False
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Django\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: authy_profile.prime_member
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: post_post
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py", line 129, in index
+    return render(request, 'index.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\template\defaulttags.py", line 194, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Django\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: post_post
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+Couldnt reverse make_messages
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\authy\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+Couldnt reverse make_messages
+STREAM b'IHDR' 16 13
+STREAM b'PLTE' 41 60
+STREAM b'IDAT' 113 1356
+Importing AvifImagePlugin
+Importing BlpImagePlugin
+Importing BmpImagePlugin
+Importing BufrStubImagePlugin
+Importing CurImagePlugin
+Importing DcxImagePlugin
+Importing DdsImagePlugin
+Importing EpsImagePlugin
+Importing FitsImagePlugin
+Importing FliImagePlugin
+Importing FpxImagePlugin
+Image: failed to import FpxImagePlugin: No module named 'olefile'
+Importing FtexImagePlugin
+Importing GbrImagePlugin
+Importing GifImagePlugin
+Importing GribStubImagePlugin
+Importing Hdf5StubImagePlugin
+Importing IcnsImagePlugin
+Importing IcoImagePlugin
+Importing ImImagePlugin
+Importing ImtImagePlugin
+Importing IptcImagePlugin
+Importing JpegImagePlugin
+Importing Jpeg2KImagePlugin
+Importing McIdasImagePlugin
+Importing MicImagePlugin
+Image: failed to import MicImagePlugin: No module named 'olefile'
+Importing MpegImagePlugin
+Importing MpoImagePlugin
+Importing MspImagePlugin
+Importing PalmImagePlugin
+Importing PcdImagePlugin
+Importing PcxImagePlugin
+Importing PdfImagePlugin
+Importing PixarImagePlugin
+Importing PngImagePlugin
+Importing PpmImagePlugin
+Importing PsdImagePlugin
+Importing QoiImagePlugin
+Importing SgiImagePlugin
+Importing SpiderImagePlugin
+Importing SunImagePlugin
+Importing TgaImagePlugin
+Importing TiffImagePlugin
+Importing WebPImagePlugin
+Importing WmfImagePlugin
+Importing XbmImagePlugin
+Importing XpmImagePlugin
+Importing XVThumbImagePlugin
+STREAM b'IHDR' 16 13
+STREAM b'PLTE' 41 60
+STREAM b'IDAT' 113 1356
+STREAM b'IHDR' 16 13
+STREAM b'PLTE' 41 60
+STREAM b'IDAT' 113 1356
+Not Found: /prasad/assets1/favicon.svg
+Not Found: /assets1/favicon.svg
+STREAM b'IHDR' 16 13
+STREAM b'PLTE' 41 141
+STREAM b'IDAT' 194 8192
+Not Found: /hemya/assets1/favicon.svg
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Not Found: /hemya/assets1/favicon.svg
+Not Found: /assets1/favicon.svg
+STREAM b'IHDR' 16 13
+STREAM b'sRGB' 41 1
+STREAM b'gAMA' 54 4
+STREAM b'pHYs' 70 9
+STREAM b'IDAT' 91 65445
+Not Found: /prasad/assets1/favicon.svg
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+books not found when generating links
+No url supplied in custom link
+Couldnt reverse make_messages
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Error processing like for post_id 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7: no such table: notification_notification
+Internal Server Error: /like/2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7/
+Error processing like for post_id 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7: no such table: notification_notification
+Internal Server Error: /like/2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7/
+Error processing like for post_id 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7: no such table: notification_notification
+Internal Server Error: /like/2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7/
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+Error processing like for post_id 2193cb37-19e1-406b-b031-a4eefdaff976: no such table: notification_notification
+Internal Server Error: /like/2193cb37-19e1-406b-b031-a4eefdaff976/
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Error processing like for post_id 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7: no such table: notification_notification
+Internal Server Error: /like/2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7/
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Like action: liked, Post: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7, User: 1, New like count: 1
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+STREAM b'IHDR' 16 13
+STREAM b'PLTE' 41 60
+STREAM b'IDAT' 113 1356
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Like action: liked, Post: 2193cb37-19e1-406b-b031-a4eefdaff976, User: 2, New like count: 1
+Not Found: /prasad/assets1/favicon.svg
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Like action: liked, Post: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7, User: 2, New like count: 2
