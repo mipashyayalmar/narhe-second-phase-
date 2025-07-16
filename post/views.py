@@ -58,9 +58,17 @@ def index(request):
         all_users = all_users.exclude(id=user.id)
         followed_users = Follow.objects.filter(follower=user).values_list('following__id', flat=True)
         
+        # Get posts from followed users
         posts = Stream.objects.filter(user=user)
         group_ids = [post.post_id for post in posts]
-        post_items = Post.objects.filter(id__in=group_ids).all().order_by('-posted')
+        
+        # Combine followed users' posts and user's own posts
+        post_items = Post.objects.filter(
+            Q(id__in=group_ids) | Q(user=user)
+        )
+
+        # Order by posting time
+        post_items = post_items.distinct().order_by('-posted')
 
     # Handle POST requests (comments)
     if request.method == "POST":

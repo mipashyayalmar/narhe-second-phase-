@@ -25,3 +25,57 @@ Returning 1 comments for post_id: f26603c8-db69-4826-97ac-44bf326eff09
 Like action: liked, Post: 7f79df5b-8270-448d-b27e-c4d10dac7840, User: 1, New like count: 4
 Like action: unliked, Post: 7f79df5b-8270-448d-b27e-c4d10dac7840, User: 1, New like count: 3
 Like action: liked, Post: 7f79df5b-8270-448d-b27e-c4d10dac7840, User: 1, New like count: 4
+Watching for file changes with StatReloader
+Received request for comments on post_id: 64afebab-1c6a-4f5e-88ed-c8c8be0b26eb
+Returning 1 comments for post_id: 64afebab-1c6a-4f5e-88ed-c8c8be0b26eb
+Received request for comments on post_id: 7f79df5b-8270-448d-b27e-c4d10dac7840
+Returning 5 comments for post_id: 7f79df5b-8270-448d-b27e-c4d10dac7840
+Received request for comments on post_id: f26603c8-db69-4826-97ac-44bf326eff09
+Returning 1 comments for post_id: f26603c8-db69-4826-97ac-44bf326eff09
+Like action: unliked, Post: 64afebab-1c6a-4f5e-88ed-c8c8be0b26eb, User: 1, New like count: 0
+Like action: liked, Post: 64afebab-1c6a-4f5e-88ed-c8c8be0b26eb, User: 1, New like count: 1
+Like action: unliked, Post: 64afebab-1c6a-4f5e-88ed-c8c8be0b26eb, User: 1, New like count: 0
+Like action: unliked, Post: 7f79df5b-8270-448d-b27e-c4d10dac7840, User: 1, New like count: 3
+Like action: liked, Post: 7f79df5b-8270-448d-b27e-c4d10dac7840, User: 1, New like count: 4
+Not Found: /saurabh/assets1/favicon.svg
+Received request for comments on post_id: 7f79df5b-8270-448d-b27e-c4d10dac7840
+Returning 5 comments for post_id: 7f79df5b-8270-448d-b27e-c4d10dac7840
+Received request for comments on post_id: f26603c8-db69-4826-97ac-44bf326eff09
+Returning 1 comments for post_id: f26603c8-db69-4826-97ac-44bf326eff09
+Not Found: /undefined/
+Not Found: /profile-main.html/
+Not Found: /favicon.ico/
+Not Found: /sudha/assets1/favicon.svg
+Not Found: /prasad/assets1/favicon.svg
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
