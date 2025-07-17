@@ -1092,6 +1092,7 @@
                         </div>
          
 <body>
+{% load post_tags %}
 {% for post in post_items %}
     <!-- POST -->
     <div id="feed-post-{{ post.id }}" class="card is-post">
@@ -1120,23 +1121,6 @@
                     </div>
                 </div>
 
-                <style>
-.prime-tick
- {
-    max-width: 15px;
-    max-height: 15px;
-    vertical-align: middle;
-    margin-left: 4px;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-                </style>
                 <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
                     <div>
                         <div class="button">
@@ -1189,15 +1173,14 @@
                     <a data-fancybox="post{{ post.id }}" data-lightbox-type="comments" data-thumb="{{ post.picture.url }}" href="{% url 'post-details' post.id %}" data-demo-href="{{ post.picture.url }}">
                         <img src="{{ post.picture.url }}" data-demo-src="{{ post.picture.url }}" alt="" />
                     </a>
-{% load post_tags %}
 
-<!-- Rest of your template code -->
-<div class="like-wrapper">
-    <button class="like-button" data-post-id="{{ post.id }}" data-liked="{% if request.user.is_authenticated and post|has_liked:request.user %}true{% else %}false{% endif %}">
-        <i class="mdi mdi-heart {% if request.user.is_authenticated and post|has_liked:request.user %}is-liked{% else %}not-liked{% endif %}"></i>
-        <span class="like-overlay"></span>
-    </button>
-</div>
+                    <!-- Rest of your template code -->
+                    <div class="like-wrapper">
+                        <button class="like-button" data-post-id="{{ post.id }}" data-liked="{% if request.user.is_authenticated and post|has_liked:request.user %}true{% else %}false{% endif %}">
+                            <i class="mdi mdi-heart {% if request.user.is_authenticated and post|has_liked:request.user %}is-liked{% else %}not-liked{% endif %}"></i>
+                            <span class="like-overlay"></span>
+                        </button>
+                    </div>
                     <div class="fab-wrapper is-share">
                         <a href="javascript:void(0);" class="small-fab share-fab modal-trigger" data-modal="share-modal">
                             <i data-feather="link-2"></i>
@@ -1213,13 +1196,13 @@
             <!-- Post footer -->
             <div class="card-footer">
                 <div class="likers-group">
-                     {% for like in post.post_likes.all|slice:":4" %}
-                    <img src="{{ like.user.profile.image.url }}" data-user-popover="{{ like.user.id }}" alt="{{ like.user.username }}" />
-                {% endfor %}
+                    {% for like in post.post_likes.all|slice:":4" %}
+                        <img src="{{ like.user.profile.image.url }}" data-user-popover="{{ like.user.id }}" alt="{{ like.user.username }}" />
+                    {% endfor %}
                 </div>
                 <div class="likers-text">
                     <p>
-                       {% with post.post_likes.all as likers %}
+                        {% with post.post_likes.all as likers %}
                             {% for like in likers|slice:":2" %}
                                 <a href="#">{{ like.user.username }}</a>
                                 {% if not forloop.last %}, {% endif %}
@@ -1232,9 +1215,9 @@
                 </div>
                 <div class="social-count">
                     <div class="likes-count" data-post-id="{{ post.id }}">
-                                <i data-feather="heart"></i>
-                             <span class="likes-count" data-post-id="{{ post.id }}">{{ post.likes }}</span>
-                            </div>
+                        <i data-feather="heart"></i>
+                        <span class="likes-count" data-post-id="{{ post.id }}">{{ post.likes }}</span>
+                    </div>
                     <div class="shares-count">
                         <i data-feather="link-2"></i>
                         <span>9</span>
@@ -1257,16 +1240,13 @@
             </div>
             <div class="comments-body has-slimscroll">
                 {% if post.comments.count == 0 %}
-
-                 <div class="comments-placeholder">
+                    <div class="comments-placeholder">
                         <img src="{% static 'assets/img/icons/feed/bubble.svg' %}" alt="" />
                         <h3>Nothing in here yet</h3>
                         <p>Be the first to post a comment.</p>
                     </div>
-                    
                 {% else %}
-                   
-                {% for comment in post.comments.all %}
+                    {% for comment in post.comments.all %}
                         {% if not comment.parent %}
                             {% include 'comment.html' with comment=comment %}
                         {% endif %}
@@ -1315,62 +1295,71 @@
     </div>
     <!-- /POST -->
 {% endfor %}
+
+
 <style>
-        /* Like button styles */
+
+    .prime-tick {
+                        max-width: 15px;
+                        max-height: 15px;
+                        vertical-align: middle;
+                        margin-left: 4px;
+                        animation: pulse 2s infinite;
+                    }
+
+                    @keyframes pulse {
+                        0% { transform: scale(1); }
+                        50% { transform: scale(1.2); }
+                        100% { transform: scale(1); }
+                    }
+            /* Like button styles */
         .like-wrapper {
-            display: inline-block;
-            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .like-button {
             position: relative;
-            width: 54px;
-            height: 54px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: #fff;
-            box-shadow: 0px 5px 43px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0 auto;
-            text-decoration: none;
-            opacity: 1 !important;
-            overflow: hidden;
-            cursor: pointer;
             border: none;
-            outline: none;
-            padding: 0;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
         .like-button .like-overlay {
-            display: block;
             position: absolute;
             top: 0;
             left: 0;
-            width: 54px;
-            height: 54px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             background: #d10709;
             transform: scale(0);
-            transition: transform 0.4s ease;
+            transition: transform 0.3s ease;
             z-index: 0;
         }
 
         .like-button i {
-            font-size: 24px;
+            font-size: 20px;
             position: relative;
             z-index: 1;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .like-button i.not-liked {
-            display: block;
-            color: #d10709;
+            color: #d10709; /* Red outline for unliked state */
         }
 
         .like-button i.is-liked {
-            display: none;
-            color: #fff;
+            color: #fff; /* White for filled heart */
         }
 
         .like-button.is-active .like-overlay {
@@ -1378,149 +1367,37 @@
         }
 
         .like-button.is-active i.not-liked {
-            display: none;
+            color: #fff; /* Ensure the heart is white when active */
         }
 
         .like-button.is-active i.is-liked {
-            display: block;
+            color: #fff; /* Filled heart in white */
         }
 
         .like-button[data-liked="true"] .like-overlay {
             transform: scale(1);
         }
 
-        .like-button[data-liked="true"] i.not-liked {
-            display: none;
+        .like-button[data-liked="true"] i {
+            color: #fff; /* Filled heart in white */
         }
 
-        .like-button[data-liked="true"] i.is-liked {
-            display: block;
-        }
-
-        /* Likers section styles */
-        .likers-group {
-            display: flex;
-            margin-bottom: 8px;
-        }
-
-        .likers-group img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: -10px;
-            border: 2px solid #fff;
-            transition: all 0.3s ease;
-        }
-
-        .likers-group img:hover {
-            transform: translateY(-3px);
-            z-index: 1;
-        }
-
-        .likers-text p {
-            margin: 0;
+        .likes-count {
             font-size: 14px;
-            color: #666;
-        }
-
-        .likers-text a {
             color: #333;
-            font-weight: 500;
-            text-decoration: none;
         }
 
-        .likers-text a:hover {
-            text-decoration: underline;
+        /* Animation for like/unlike */
+        @keyframes heart-bounce {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
-</style>
-<style>
-    /* Like button styles */
-.like-wrapper {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
 
-.like-button {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.like-button .like-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: #d10709;
-    transform: scale(0);
-    transition: transform 0.3s ease;
-    z-index: 0;
-}
-
-.like-button i {
-    font-size: 20px;
-    position: relative;
-    z-index: 1;
-    transition: color 0.3s ease;
-}
-
-.like-button i.not-liked {
-    color: #d10709; /* Red outline for unliked state */
-}
-
-.like-button i.is-liked {
-    color: #fff; /* White for filled heart */
-}
-
-.like-button.is-active .like-overlay {
-    transform: scale(1);
-}
-
-.like-button.is-active i.not-liked {
-    color: #fff; /* Ensure the heart is white when active */
-}
-
-.like-button.is-active i.is-liked {
-    color: #fff; /* Filled heart in white */
-}
-
-.like-button[data-liked="true"] .like-overlay {
-    transform: scale(1);
-}
-
-.like-button[data-liked="true"] i {
-    color: #fff; /* Filled heart in white */
-}
-
-.likes-count {
-    font-size: 14px;
-    color: #333;
-}
-
-/* Animation for like/unlike */
-@keyframes heart-bounce {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-.like-button.is-active {
-    animation: heart-bounce 0.3s ease;
-}
-</style>
+        .like-button.is-active {
+            animation: heart-bounce 0.3s ease;
+        }
+</style> 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all like buttons

@@ -41,7 +41,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-
 def index(request):
     user = request.user
     all_users = User.objects.all()
@@ -69,6 +68,33 @@ def index(request):
             Q(user__in=prime_users)
         ).distinct().order_by('-posted')
 
+    # Handle comment submission
+    if request.method == "POST":
+        if not user.is_authenticated:
+            return HttpResponseRedirect(reverse('login'))
+            
+        form = NewCommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = user
+            post_id = request.POST.get('post_id')
+            post = get_object_or_404(Post, id=post_id)
+            comment.post = post
+            parent_id = request.POST.get('parent')
+            if parent_id:
+                parent = get_object_or_404(Comment, id=parent_id)
+                comment.parent = parent
+            comment.save()
+            # Check for AJAX request
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+                return JsonResponse({'success': True, 'comment_id': str(comment.id)})
+            return HttpResponseRedirect(reverse('index'))
+        else:
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+                return JsonResponse({'success': False, 'error': form.errors}, status=400)
+            # Fallback for non-AJAX
+            logger.error(f"Form errors: {form.errors}")
+
     # Handle search
     query = request.GET.get('q')
     if query:
@@ -88,7 +114,6 @@ def index(request):
         'users_paginator': users_paginator,
     }
     return render(request, 'index.html', context)
-
 @login_required
 def PostDetail(request, post_id):
     user = request.user

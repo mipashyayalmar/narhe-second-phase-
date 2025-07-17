@@ -1418,3 +1418,226 @@ Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
 Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
 Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
 Like action: liked, Post: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7, User: 2, New like count: 2
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Like action: unliked, Post: 2193cb37-19e1-406b-b031-a4eefdaff976, User: 2, New like count: 0
+Like action: liked, Post: 2193cb37-19e1-406b-b031-a4eefdaff976, User: 2, New like count: 1
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Importing AvifImagePlugin
+Importing BlpImagePlugin
+Importing BmpImagePlugin
+Importing BufrStubImagePlugin
+Importing CurImagePlugin
+Importing DcxImagePlugin
+Importing DdsImagePlugin
+Importing EpsImagePlugin
+Importing FitsImagePlugin
+Importing FliImagePlugin
+Importing FpxImagePlugin
+Image: failed to import FpxImagePlugin: No module named 'olefile'
+Importing FtexImagePlugin
+Importing GbrImagePlugin
+Importing GifImagePlugin
+Importing GribStubImagePlugin
+Importing Hdf5StubImagePlugin
+Importing IcnsImagePlugin
+Importing IcoImagePlugin
+Importing ImImagePlugin
+Importing ImtImagePlugin
+Importing IptcImagePlugin
+Importing JpegImagePlugin
+Importing Jpeg2KImagePlugin
+Importing McIdasImagePlugin
+Importing MicImagePlugin
+Image: failed to import MicImagePlugin: No module named 'olefile'
+Importing MpegImagePlugin
+Importing MpoImagePlugin
+Importing MspImagePlugin
+Importing PalmImagePlugin
+Importing PcdImagePlugin
+Importing PcxImagePlugin
+Importing PdfImagePlugin
+Importing PixarImagePlugin
+Importing PngImagePlugin
+Importing PpmImagePlugin
+Importing PsdImagePlugin
+Importing QoiImagePlugin
+Importing SgiImagePlugin
+Importing SpiderImagePlugin
+Importing SunImagePlugin
+Importing TgaImagePlugin
+Importing TiffImagePlugin
+Importing WebPImagePlugin
+Importing WmfImagePlugin
+Importing XbmImagePlugin
+Importing XpmImagePlugin
+Importing XVThumbImagePlugin
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Like action: liked, Post: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7, User: 3, New like count: 3
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 0 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 1 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 1 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 1 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 2 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Watching for file changes with StatReloader
+Not Found: /users/setting/
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 2 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 2 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 3 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 3 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Like action: unliked, Post: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7, User: 1, New like count: 2
+Like action: liked, Post: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7, User: 1, New like count: 3
+Like action: unliked, Post: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7, User: 1, New like count: 2
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 3 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Like action: liked, Post: 2193cb37-19e1-406b-b031-a4eefdaff976, User: 1, New like count: 2
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 3 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Like action: unliked, Post: 2193cb37-19e1-406b-b031-a4eefdaff976, User: 1, New like count: 1
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /signin/
+Not Found: /favicon.ico/
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py", line 116, in index
+    return render(request, 'index.html', context)@login_required
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for @: 'HttpResponse' and 'function'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Django\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py", line 116, in index
+    return render(request, 'index.html', context)@login_required
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for @: 'HttpResponse' and 'function'
+Not Found: /favicon.ico/
+C:\Users\PRASAD\Downloads\Desktop\narhe sP\post\views.py changed, reloading.
+Watching for file changes with StatReloader
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 3 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 4 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 4 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 4 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 4 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 4 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Not Found: /prasad/assets1/favicon.svg
+Received request for comments on post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Returning 4 comments for post_id: 2193cb37-19e1-406b-b031-a4eefdaff976
+Received request for comments on post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Returning 0 comments for post_id: 2057d5ae-f2f9-4cb0-8559-4ba34ab05dc7
+Watching for file changes with StatReloader
