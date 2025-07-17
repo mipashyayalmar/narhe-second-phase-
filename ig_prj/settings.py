@@ -1,4 +1,3 @@
-# mipashya from bhandishegaon
 """
 Django settings for ig_prj project.
 
